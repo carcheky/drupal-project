@@ -891,3 +891,14 @@ $config['system.performance']['js']['preprocess'] = getenv('JS_PREPROCESS');
 if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
   include $app_root . '/' . $site_path . '/settings.local.php';
 }
+$databases['default']['default'] = array (
+  'database' => 'drupal',
+  'username' => 'drupal',
+  'password' => 'drupal',
+  'prefix' => false,
+  'host' => 'mariadb',
+  'port' => '3306',
+  'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
+  'driver' => 'mysql',
+);
+$settings['hash_salt'] = 'mtUoOOl3_vE4IFG19EjbzzPFJ7BRR5SgvEbl6Ecx3FH0nV2hsMR-bypkryvuXTshlT6rt2HxYw';

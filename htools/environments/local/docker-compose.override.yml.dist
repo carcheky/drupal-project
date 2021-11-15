@@ -11,7 +11,7 @@ services:
   php:
     build:
       context: .
-      dockerfile: environments/${PROJECT_STAGE}/Dockerfile.hiberus
+      dockerfile: htools/environments/${PROJECT_STAGE}/Dockerfile.hiberus
       args:
         PHP_TAG: $PHP_TAG
     env_file: # Se incluyen las variables de entorno configuradas
@@ -55,7 +55,7 @@ services:
     container_name: "${PROJECT_NAME}_mkdocs"
     image: metadrop/docker-mkdocs
     volumes:
-      - ./docs:/docs
+      - ./htools/docs:/docs
     working_dir: /docs
     labels:
       - "traefik.http.services.${PROJECT_NAME}_mkdocs.loadbalancer.server.port=8080"

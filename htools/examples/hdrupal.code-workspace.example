@@ -143,15 +143,15 @@
       "",
       "{footer}"
     ],
-    // "saveAndRun": {
-    //   "commands": [
-    //     {
-    //       "match": "Dockerfile.*",
-    //       "cmd": "clear; docker-compose up -d --build",
-    //       "useShortcut": false
-    //     }
-    //   ]
-    // },
+    "saveAndRun": {
+      "commands": [
+        {
+          "match": "Dockerfile.*",
+          "cmd": "clear; docker-compose up -d --build",
+          "useShortcut": false
+        }
+      ]
+    },
     "git.autofetch": "all",
     "editor.formatOnSaveMode": "modifications",
     "git.followTagsWhenSync": true,
