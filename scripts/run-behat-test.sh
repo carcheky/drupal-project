@@ -18,12 +18,12 @@ else
   vendor/bin/behat --config htools/behat_tests/behat.yml --init
 
   if [ ! -f htools/behat_tests/existing_options_es.txt ];then
-    echo htools/behat_tests/existing_options_es* >> .gitignore
+    echo htools/behat_tests/existing_options_es* >> .git/info/exclude
     vendor/bin/behat --config htools/behat_tests/behat.yml -dl --lang es >> htools/behat_tests/existing_options_es.txt
   fi
 
   if [ ! -f htools/behat_tests/existing_options_en.txt ];then
-    echo htools/behat_tests/existing_options_en* >> .gitignore
+    echo htools/behat_tests/existing_options_en* >> .git/info/exclude
     vendor/bin/behat --config htools/behat_tests/behat.yml -dl --lang en >> htools/behat_tests/existing_options_en.txt
   fi
 
