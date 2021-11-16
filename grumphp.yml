@@ -32,7 +32,7 @@ grumphp:
           - style
           - test
     phpstan:
-      configuration: grumphp/phpstan.neon
+      configuration: htools/examples/phpstan.neon
       force_patterns: []
       ignore_patterns: []
       triggered_by: ["php"]
@@ -43,7 +43,8 @@ grumphp:
       exclude: []
       report_format: text
       # ruleset: ['cleancode', 'codesize', 'design', 'naming', 'unusedcode', 'controversial']
-      ruleset: ['cleancode', 'codesize', 'design', 'naming', 'unusedcode']
+      # ruleset: ['cleancode', 'codesize', 'design', 'naming', 'unusedcode']
+      ruleset: ['htools/examples/phpmd.xml.dist']
       triggered_by: ['php']
     phpcs:
       encoding: utf-8
