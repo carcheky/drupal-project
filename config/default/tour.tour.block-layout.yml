@@ -16,33 +16,33 @@ tips:
   block-layout:
     id: block-layout
     plugin: text
-    label: 'Block Layout'
-    body: 'Blocks are boxes of content rendered into an area, or region, of a web page that can be displayed in regions (such as footer or sidebar) on your page.'
+    label: 'Diseño de bloque'
+    body: 'Los bloques son envoltorios de contenido renderizados en una area o región de una página web que pueden ser mostrados en regiones (tales como pie o cabecera) en su página.'
     weight: 1
   place-block:
     id: place-block
     plugin: text
-    label: 'Place Blocks'
-    body: 'Any custom or contributed block can be added to a particular region by clicking on a button Place block. A new block can also be created by clicking on Place Block'
+    label: 'Colocar Bloques.'
+    body: 'Cualquier bloque personalizado o contribuido se puede agregar a una región en particular haciendo clic en el botón Colocar bloque. También se puede crear un nuevo bloque haciendo clic en Colocar bloque.'
     weight: 2
     selector: .button--small
   block-region:
     id: block-region
     plugin: text
-    label: 'Block Region'
-    body: 'Assign or change the region of a block by clicking here. A dropdown list with all the regions will appear.You can place one block in multiple regions.'
+    label: 'Región de bloque'
+    body: 'Asigne o cambie la región de un bloque haciendo clic aquí. Aparecerá una lista desplegable con todas las regiones. Puede colocar un bloque en varias regiones.'
     weight: 3
     selector: .block-region-select
   configure-block:
     id: configure-block
     plugin: text
-    label: 'Configure Block'
-    body: 'By Clicking on "Configure" you can go ahead and edit the contents of the block, deal with the visibility settings and even change the placement of where it is on your theme.'
+    label: 'Configurar bloque'
+    body: 'Al hacer clic en "Configurar", puede seguir adelante y editar el contenido del bloque, editar la configuración de visibilidad e incluso cambiar la ubicación de donde se muestra en su tema.'
     weight: 4
     selector: .dropbutton-widget
   custom-block-library:
     id: custom-block-library
     plugin: text
-    label: 'Custom Block Library'
-    body: 'The block management screen also has an another tab on the top which is used to add Custom blocks. The name of the tab is "Custom block library". This tab ultimately provides a link to add custom blocks.'
+    label: 'Librería personalizada de bloques'
+    body: 'La pantalla de gestión de bloques tiene también otra pestaña en la parte superior que es utilizada para añadir bloques personalizados. El nombre de la pestaña es  "Librería de bloques personalizada". Esta pestaña proporciona un enlace para añadir bloques personalizados.'
     weight: 5
