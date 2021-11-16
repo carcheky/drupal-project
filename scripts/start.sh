@@ -25,6 +25,7 @@ fi
 if [ -f docker-compose.override.yml ] && [ -f .env ]
 then
   # levantamos docker
+  docker stop $(docker ps -a -q) > /dev/null
   docker-compose build --parallel
   docker-compose up -d --remove-orphans
   sleep 3
