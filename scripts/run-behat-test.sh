@@ -3,9 +3,9 @@
 if [ ! -d /home/wodby ]
 then
   if [[ ${1} == '-v' ]]; then
-    docker-compose exec php bash htools/scripts/run-behat-test.sh -v
+    docker-compose exec php bash scripts/run-behat-test.sh -v
   else
-    docker-compose exec php bash htools/scripts/run-behat-test.sh
+    docker-compose exec php bash scripts/run-behat-test.sh
   fi
 
   exit
@@ -14,7 +14,7 @@ fi
 if [ ! -f vendor/bin/behat ]; then
   composer require --dev behat/behat dmore/behat-chrome-extension drupal/drupal-extension
 else
-  bash htools/scripts/generate-users-per-role.sh -c
+  bash scripts/generate-users-per-role.sh -c
   vendor/bin/behat --config htools/behat_tests/behat.yml --init
 
   if [ ! -f htools/behat_tests/existing_options_es.txt ];then
@@ -34,8 +34,8 @@ else
   fi
 
   # vendor/bin/behat --config htools/behat_tests/behat.yml --help
-  bash htools/scripts/generate-users-per-role.sh -d
+  bash scripts/generate-users-per-role.sh -d
 fi
 
 
-echo "run 'bash htools/scripts/run-behat-test.sh -v' to see verbose"
+echo "run 'bash scripts/run-behat-test.sh -v' to see verbose"

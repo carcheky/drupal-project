@@ -35,7 +35,6 @@ module:
   locale: 0
   menu_link_content: 0
   menu_ui: 0
-  minimal: 0
   module_filter: 0
   node: 0
   options: 0
@@ -54,6 +53,7 @@ module:
   user: 0
   views_ui: 0
   views: 10
+  minimal: 1000
 theme:
   bartik: 0
   seven: 0

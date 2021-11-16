@@ -57,7 +57,7 @@
     },
     "scripts": {
         "post-install-cmd": [
-            "bash ./htools/scripts/hiberus-composer-post-install.sh"
+            "bash ./scripts/hiberus-composer-post-install.sh"
         ]
     },
     "extra": {
