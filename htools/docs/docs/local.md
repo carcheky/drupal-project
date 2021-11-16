@@ -1,17 +1,17 @@
 ## Preparación
-1. Copia el archivo ``.env.dist`` a ``.env``
-2. Copia el archivo ``docker-compose.override.yml.dist`` a
-``docker-compose.override.yml``
-3. Copia el archivo ``.vscode/extensions.json.dist`` a
-``.vscode/extensions.json``
-4. Copia el archivo ``.vscode/launch.json.dist`` a ``.vscode/launch.json``
-5. Copia el archivo ``.vscode/settings.json.dist`` a ``.vscode/settings.json``
-
-### Alternativa
+### Alternativa 1
 1. Ejecuta el archivo desde el terminal:
 ````bash
-bash scripts/prepare_local.sh
+bash scripts/start.sh
 ````
+
+### Alternativa 2
+1. Copia el archivo ``htools/examples/.env.example`` a ``.env``
+   1. Edita el archivo ``.env`` a tu gusto
+2. Copia el archivo
+``htools/environments/local/docker-compose.override.yml.dist`` a
+``docker-compose.override.yml``
+
 ## Docker e instalación del proyecto
 - Para arrancar los contenedores en tu equipo ejecuta:
 ``docker-compose up -d --build``
@@ -19,8 +19,11 @@ bash scripts/prepare_local.sh
     - Ejecuta ``composer install`` para instalar todas las dependencias (por
     defecto
 se ejecuta con ``--dev`` instalando también las dependencias de desarrollo)
-    - Importa la base de datos: ``drush sql-cli < bd.sql``
+    - Importa la base de datos: ``drush sql-cli < bd.sql`` o realiza una nueva
+    instalación con la configuración existente:
+    ``drush si --existing-config -y``
     - Actualiza la base de datos e importa la configuración: ``drush deploy``
     - En algunas ocasiones puede ser necesario repetir la importación de la
     configuración varias veces con ``drush cim``
-- Accede a [cedex.docker.localhost:8000](http://cedex.docker.localhost:8000)
+- Accede a
+ [mysitename.docker.localhost:8000](http://mysitename.docker.localhost:8000)

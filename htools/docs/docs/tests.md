@@ -6,5 +6,5 @@ funcionalidades básicas
 Las pruebas las podemos ejecutar lanzando el script (debe funcionar tanto si lo
 ejecutamos dentro como fuera del contenedor):
 ```bash
-bash behat_tests/behat.sh
+bash scripts/run-behat-test.sh
 ```

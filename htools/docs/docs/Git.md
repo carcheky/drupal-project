@@ -6,9 +6,6 @@ En Mitma trabajamos con los repositorios alojados en Azure Devops del ministerio
 
 
 
-1. Primero crearemos nuestra tarea en <a
-href="https://fomentogobes.visualstudio.com/Portal.Web.DrupalAWS/_boards/directory"
-target="_blank">Azure DevOps Boards</a>
 2. Crearemos una rama para nuestra tarea:
 
     ````
@@ -52,9 +49,6 @@ con los últimos cambios
     git push origin feature/nombre_descriptivo;
     ````
 
-6. Vamos a <a
-href="https://fomentogobes.visualstudio.com/Portal.Web.DrupalAWS/_git/Cedex/pullrequests"
-target="_blank">Azure DevOps pullrequests</a> y creamos el pull request
-
-7. Una vez aceptado el pull request, debemos borrar las ramas tanto en local
+6. Creamos nuestro Pull/Merge Request
+7. Una vez aceptado, debemos borrar las ramas tanto en local
 como en remoto

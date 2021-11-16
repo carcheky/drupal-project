@@ -1,6 +1,6 @@
 ## url de acceso:
 
-- [http://docs.cedex.docker.localhost:8000/](http://docs.cedex.docker.localhost:8000/)
+- [http://docs.mysitename.docker.localhost/](http://docs.mysitename.docker.localhost/)
 
 ## Detalles
 
