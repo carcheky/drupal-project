@@ -4,9 +4,9 @@
 if [[ $1 = '--dev' ]]
 then
   echo "BORRANDO!!!"
-  # docker-compose down --remove-orphans
+  docker-compose down --remove-orphans
   sudo rm -fr .salt htools/.salt
-  # sudo rm -fr vendor composer.lock .env docker-compose.override.yml .salt htools/.salt
+  sudo rm -fr vendor composer.lock .env docker-compose.override.yml .salt htools/.salt
   ln -fs htools/environments/local/docker-compose.override.yml.dist docker-compose.override.yml
   ln -fs htools/examples/.env.example .env
 else
@@ -25,7 +25,7 @@ fi
 if [ -f docker-compose.override.yml ] && [ -f .env ]
 then
   # levantamos docker
-  # docker-compose build --parallel
+  docker-compose build --parallel
   docker-compose up -d --remove-orphans
   sleep 3
   # composer install
@@ -36,7 +36,6 @@ then
   # generamos nuevo salt si no existe
   if [ ! -f .salt ]
   then
-    echo "===> SALT"
     docker-compose exec php scripts/generate-salt.sh
   fi
   sleep 1
@@ -44,7 +43,6 @@ then
   docker-compose exec php drush si --existing-config -y
   sleep 1
   # generamos nuevo site uuid
-  echo "===> UUID"
   bash scripts/generate-new-site-uuid.sh
   # generamos enlace de inicio de sesión
   docker-compose exec php drush uli
