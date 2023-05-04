@@ -17,8 +17,6 @@ _clean:
 	rm -f ./.git/hooks/pre-commit 2>&1
 	rm -f ./.git/hooks/commit-msg 2>&1
 	@make prune
-	rm -f ./docker-compose* 2>&1
-	rm -f ./.env* 2>&1
 	git clean -xi
 # Restore editorconfig since gets modified during Drupal installation.
 	git checkout -- .editorconfig 2>&1
