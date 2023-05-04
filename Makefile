@@ -1,4 +1,10 @@
-.SHELLFLAGS = -e
+# -c: execute the following command as a complete command.
+# -e: exit immediately if a command returns a non-zero status.
+# -u: treat unset variables as an error when substituting.
+# -x: print each command before executing it.
+.SHELLFLAGS = -ce
+
+# defaul task
 .DEFAULT_GOAL := help
 
 include ./scaffold/make/*.mk
