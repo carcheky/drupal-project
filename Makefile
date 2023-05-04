@@ -19,7 +19,7 @@ endif
 help:
 	@sed -n 's/^##//p' $(filter-out .env, $(MAKEFILE_LIST))
 
-## install	:	Installs Drupal using the pre-packed configuration
+## install:	Installs Drupal using the pre-packed configuration
 install: ./config ./composer.json ./.env
 	@echo "Executing Drupal installation"
 	@$(MAKE) up
