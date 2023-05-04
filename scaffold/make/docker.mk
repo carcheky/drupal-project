@@ -11,7 +11,7 @@ else
 	CURRENT_OS := $(OS)
 endif
 
-## onboard	:	Executes project onboarding
+## onboard:	Executes project onboarding
 .PHONY: onboard
 onboard: .env.dist ./scaffold/scripts/onboarding.sh
 	@./scaffold/scripts/onboarding.sh
@@ -63,9 +63,11 @@ endif
 prune:
 	@echo "Removing containers for $(PROJECT_NAME)..."
 ifeq ($(CURRENT_OS),Darwin)
-	@mutagen-compose down -v $(filter-out $@,$(MAKECMDGOALS))
+	@mutagen-compose kill
+	@mutagen-compose down -v --remove-orphans $(filter-out $@,$(MAKECMDGOALS))
 else
-	@docker-compose down -v $(filter-out $@,$(MAKECMDGOALS))
+	@docker-compose kill
+	@docker-compose down -v --remove-orphans $(filter-out $@,$(MAKECMDGOALS))
 endif
 
 ## ps	:	List running containers.
@@ -79,7 +81,7 @@ ps:
 shell:
 	docker exec -ti -e COLUMNS=$(shell tput cols) -e LINES=$(shell tput lines) $(shell docker ps --filter name='$(PROJECT_NAME)_$(or $(filter-out $@,$(MAKECMDGOALS)), 'php')' --format "{{ .ID }}") sh
 
-## composer	:	Executes `composer` command in a specified `COMPOSER_ROOT` directory (default is `/var/www/html`).
+## composer:	Executes `composer` command in a specified `COMPOSER_ROOT` directory (default is `/var/www/html`).
 ##		To use "--flag" arguments include them in quotation marks.
 ##		For example: make composer "update drupal/core --with-dependencies"
 .PHONY: composer

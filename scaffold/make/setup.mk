@@ -1,3 +1,5 @@
+-include .env
+
 ## setup	:	Initial project setup
 .PHONY: setup
 setup: ./scaffold/templates/docker/.env.dist ./scaffold/scripts/setup.sh ./scaffold/scripts/reqs.sh
@@ -12,30 +14,10 @@ clean: ./scaffold/scripts/clean.sh
 .PHONY: _clean
 _clean:
 	@echo "********************************"
-	rm -f ./.env* 2>&1
-	rm -f ./.eslint* 2>&1
-	rm -f ./lighthouserc* 2>&1
-	rm -f ./composer* 2>&1
-	rm -f ./docker-compose* 2>&1
-	rm -f ./grumphp.yml 2>&1
-	rm -f ./load.environment.php 2>&1
-	rm -f ./package* 2>&1
-	rm -f ./phpstan* 2>&1
-	rm -f ./phpunit* 2>&1
-	rm -f ./rector* 2>&1
-	rm -f ./traefik.toml 2>&1
-	rm -f ./web/sites/default/settings.* 2>&1
-	rm -rf ./.lighthouseci* 2>&1
-	rm -rf ./.ssl 2>&1
-	rm -rf ./config 2>&1
-	rm -rf ./docs 2>&1
-	rm -rf ./web/sites/default/files 2>&1
-	rm -rf ./files-private 2>&1
-	rm -rf ./scripts 2>&1
-	rm -rf ./tests/behat 2>&1
-	rm -rf ./tests/cypress 2>&1
-	rm -rf ./tests/phpunit 2>&1
-	rm -rf ./vendor 2>&1
+	rm -f ./.git/hooks/pre-commit 2>&1
+	rm -f ./.git/hooks/commit-msg 2>&1
+	@make prune
+	git clean -xi
 # Restore editorconfig since gets modified during Drupal installation.
 	git checkout -- .editorconfig 2>&1
 	@echo "********************************"
@@ -52,7 +34,7 @@ ifneq ($(wildcard .git),)
 endif
 	@git init;
 	@echo "Comment scaffold ignored files"
-	@sed -i '' '3,24 s/^/#/' ./.gitignore
+	@sed -i '3,24 s/^/#/' ./.gitignore
 	@echo "Disabling setup routines"
 	@mv ./scaffold/make/setup.mk ./scaffold/make/setup.mk.orig
 	@git add .
