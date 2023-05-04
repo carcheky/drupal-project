@@ -39,3 +39,4 @@ volumes:
       type: none
       device: "${PWD}"
       o: bind
+    driver: local

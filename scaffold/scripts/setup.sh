@@ -6,8 +6,9 @@ echo "#######################################";
 
 ### Get project settings
 
-printf "Enter project name (use lowercase letters and underscores): ";
+printf "Enter project name (use lowercase letters and underscores) [drupal]: ";
 read -r PROJECT_NAME;
+PROJECT_NAME=${PROJECT_NAME:-drupal} ;
 export PROJECT_NAME;
 printf "Enter the project hostname [localhost]: ";
 read -r PROJECT_BASE_URL;
@@ -53,8 +54,9 @@ fi
 
 ### Enable ngrok proxy
 while true; do
-    printf "Do you wish to enable ngrok proxy? "
+    printf "Do you wish to enable ngrok proxy? (y or [n]) "
     read -r yn
+    yn=${yn:-n}
     case $yn in
         [Yy]* ) sed -i '231,251 s/^#//' ./docker-compose.yml; break;;
         [Nn]* ) break;;

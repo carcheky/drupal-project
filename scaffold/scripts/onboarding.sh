@@ -8,11 +8,11 @@ echo "----------------------------------";
 
 ### Onboarding
 while true; do
-    printf "Choose your host OS ([linux], windows, macos): "
+    printf "Choose your host OS ([linux], windows, macos, wsl): "
     read -r PROJECT_OS;
     PROJECT_OS=${PROJECT_OS:-linux}
     case $PROJECT_OS in
-        linux* ) cp ./scaffold/templates/docker/docker-compose.linux.yml ./docker-compose.override.yml; break;;
+        linux*|wsl* ) cp ./scaffold/templates/docker/docker-compose.linux.yml ./docker-compose.override.yml; break;;
         windows* ) cp ./scaffold/templates/docker/docker-compose.windows.yml ./docker-compose.override.yml; break;;
         macos* ) cp ./scaffold/templates/docker/docker-compose.macos.yml ./docker-compose.override.yml; break;;
         * ) echo "Invalid answer, try again.";;
@@ -30,7 +30,7 @@ else
     sed -i '28,30 s/^#//' ./docker-compose.override.yml
 fi
 
-printf "Enter your IDE [phpstorm],vscode: ";
+printf "Enter your IDE ([phpstorm] or vscode): ";
 read -r IDE;
 IDE=${IDE:-phpstorm} ;
 sed -i "14,14 s/$/${IDE}/" ./.env
