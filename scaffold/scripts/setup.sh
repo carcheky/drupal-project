@@ -21,7 +21,7 @@ echo "---------------------------------------";
 while true; do
     printf "Choose your database server ([mariadb] or postgres): "
     read -r DB_SERVER;
-    DB_SERVER=${REPLY:-mariadb}
+    DB_SERVER=${DB_SERVER:-mariadb}
     case $DB_SERVER in
         mariadb|postgres* ) export DB_SERVER; break;;
         * ) echo "Invalid answer, try again.";;
@@ -38,7 +38,7 @@ fi
 while true; do
     printf "Choose your web server ([nginx] or apache): "
     read -r WEB_SERVER;
-    WEB_SERVER=${REPLY:-nginx}
+    WEB_SERVER=${WEB_SERVER:-nginx}
     case $WEB_SERVER in
         nginx|apache* ) export WEB_SERVER; break;;
         * ) echo "Invalid answer, try again.";;
