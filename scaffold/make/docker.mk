@@ -63,10 +63,8 @@ endif
 prune:
 	@echo "Removing containers for $(PROJECT_NAME)..."
 ifeq ($(CURRENT_OS),Darwin)
-	@mutagen-compose kill
 	@mutagen-compose down -v --remove-orphans $(filter-out $@,$(MAKECMDGOALS))
 else
-	@docker-compose kill
 	@docker-compose down -v --remove-orphans $(filter-out $@,$(MAKECMDGOALS))
 endif
 
