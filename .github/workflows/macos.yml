@@ -12,13 +12,10 @@ jobs:
     runs-on: macos-latest
 
     steps:
+    - uses: docker-practice/actions-setup-docker@master
+      timeout-minutes: 12
+
     - uses: actions/checkout@v3
 
-    - name: setup
-      run: make setup
-
-    - name: onboard
-      run: make onboard
-
-    - name: install
-      run: make install
+    - name: test docker
+      run: docker
