@@ -1,26 +1,27 @@
-name: Test docker proyect in macos
+name: Makefile CI
 
 on:
-    push:
-        branches:
-            - ci
-
-concurrency:
-    group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
-    cancel-in-progress: true
-
-permissions:
-    contents: read
+  push:
+    branches: [ "9.4.x" ]
+  pull_request:
+    branches: [ "9.4.x" ]
 
 jobs:
-    test-macos:
-        name: Test docker proyect in macos
-        runs-on: macos-latest
-        steps:
-            - name: Checkout
-              uses: actions/checkout@v2
-            - name: Test docker proyect in macos
-              uses: docker://docker:20.10.7
-              with:
-                  args: |
-                      make
+  build:
+
+    runs-on: macos-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: configure
+      run: ./configure
+
+    - name: Install dependencies
+      run: make
+
+    - name: Run check
+      run: make check
+
+    - name: Run distcheck
+      run: make distcheck
