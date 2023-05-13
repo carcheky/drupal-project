@@ -21,3 +21,6 @@ jobs:
 
     - name: test docker
       run: docker
+
+    - name: test make
+      run: make
