@@ -26,11 +26,11 @@ jobs:
     - name: checkout
       uses: actions/checkout@v3
 
-    - if: ${{runner.os}} == linux
+    - if: runner.os == 'Linux'
       name: install make
       run: sudo apt update && sudo apt install make -y
 
-    - if: ${{runner.os}} == macos
+    - if: runner.os == 'macOS'
       name: install make
       run: brew install make
 
