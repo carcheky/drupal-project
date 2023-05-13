@@ -20,19 +20,16 @@ jobs:
       uses: docker-practice/actions-setup-docker@master
       timeout-minutes: 12
 
-    - name: test docker
-      run: docker
+    - name: install make on linux
+      if: runner.os == 'Linux'
+      run: sudo apt update && sudo apt install make -y
+
+    - name: install make on macos
+      if: runner.os == 'macOS'
+      run: brew install make
 
     - name: checkout
       uses: actions/checkout@v3
 
-    - if: runner.os == 'Linux'
-      name: install make
-      run: sudo apt update && sudo apt install make -y
-
-    - if: runner.os == 'macOS'
-      name: install make
-      run: brew install make
-
-    - name: test make
-      run: make
+    - name: make setup
+      run: make setup
