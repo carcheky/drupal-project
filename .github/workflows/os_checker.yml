@@ -33,3 +33,6 @@ jobs:
 
     - name: make setup
       run: make setup
+
+    - name: make onboard
+      run: make onboard
