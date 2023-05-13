@@ -14,10 +14,12 @@ jobs:
         os: [ubuntu-latest, windows-latest, macos-latest, linux-latest]
     runs-on: ${{ matrix.os }}
     steps:
-    - uses: docker-practice/actions-setup-docker@master
+    - name: setup-docker
+      uses: docker-practice/actions-setup-docker@1.0.11
       timeout-minutes: 12
 
-    - uses: actions/checkout@v3
+    - name: checkout
+      uses: actions/checkout@v3
 
     - name: test docker
       run: docker
