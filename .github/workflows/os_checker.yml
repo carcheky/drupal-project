@@ -14,9 +14,15 @@ jobs:
         os: [ubuntu-latest, windows-latest, macos-latest, linux-latest]
     runs-on: ${{ matrix.os }}
     steps:
-    - name: setup-docker
+
+    - if: runner.os != 'macOS'
+      name: setup-docker
       uses: docker-practice/actions-setup-docker@1.0.11
       timeout-minutes: 12
+
+    - if: runner.os == 'macOS'
+      name: Setup Docker on macOS
+      uses: douglascamata/setup-docker-macos-action@v1-alpha
 
     - name: checkout
       uses: actions/checkout@v3
