@@ -6,11 +6,13 @@ on:
   pull_request:
     branches: [ "ci" ]
 
+
 jobs:
-  build:
-
-    runs-on: macos-latest
-
+  os_checker:
+    strategy:
+      matrix:
+        version: [10, 12, 14]
+        os: [ubuntu-latest, windows-latest, macos-latest, linux-latest]
     steps:
     - uses: docker-practice/actions-setup-docker@master
       timeout-minutes: 12
