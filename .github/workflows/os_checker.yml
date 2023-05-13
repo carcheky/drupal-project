@@ -9,12 +9,11 @@ on:
 
 jobs:
   os_checker:
-
     strategy:
       matrix:
         version: [10, 12, 14]
         os: [ubuntu-latest, windows-latest, macos-latest, linux-latest]
-      runs-on: ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
     steps:
     - uses: docker-practice/actions-setup-docker@master
       timeout-minutes: 12
