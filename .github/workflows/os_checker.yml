@@ -28,7 +28,7 @@ jobs:
 
     - if: ${{runner.os}} == linux
       name: install make
-      run: apt update && apt install make -y
+      run: sudo apt update && sudo apt install make -y
 
     - if: ${{runner.os}} == macos
       name: install make
