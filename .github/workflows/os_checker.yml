@@ -31,4 +31,4 @@ jobs:
         ref: ci
     - name: make
       run: make
-      ls
+        ls
