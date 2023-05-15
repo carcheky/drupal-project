@@ -16,13 +16,10 @@ jobs:
     runs-on: ${{ matrix.os }}
 
     steps:
-    - name: setup-docker
-      uses: docker-practice/actions-setup-docker@master
-      timeout-minutes: 12
 
-    - name: install make on linux
-      if: runner.os == 'Linux'
-      run: sudo apt update && sudo apt install make -y
+    # - name: setup-docker
+    #   uses: docker-practice/actions-setup-docker@master
+    #   timeout-minutes: 12
 
     - name: install make on macos
       if: runner.os == 'macOS'
@@ -31,14 +28,7 @@ jobs:
     - name: checkout
       uses: actions/checkout@v3
 
-    - name: list current dir
-      run: ls -la
-
     - name: man make
       run: man make
 
-    - name: make setup
-      run: /usr/bin/make setup
-
-    - name: make onboard
-      run: make onboard
+    - name: make -f Makefile
