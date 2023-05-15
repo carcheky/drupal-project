@@ -30,5 +30,6 @@ jobs:
       with:
         ref: ci
     - name: make
-      run: make
+      run: |
+        make help
         ls
