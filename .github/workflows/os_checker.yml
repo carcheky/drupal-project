@@ -12,7 +12,7 @@ jobs:
 
     strategy:
       matrix:
-        os: [linux-latest, macos-latest]
+        os: [ubuntu-latest, macos-latest]
     runs-on: ${{ matrix.os }}
 
     steps:
@@ -34,8 +34,8 @@ jobs:
     - name: list current dir
       run: ls -la
 
-    - name: which make
-      run: which make
+    - name: make -f Makefile
+      run: make -f Makefile
 
     - name: make setup
       run: /usr/bin/make setup
