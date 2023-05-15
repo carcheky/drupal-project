@@ -28,5 +28,5 @@ jobs:
     - name: checkout
       uses: actions/checkout@v3
 
-    - name: make -f Makefile
-      run: make -f Makefile
+    - name: make
+      run: make
