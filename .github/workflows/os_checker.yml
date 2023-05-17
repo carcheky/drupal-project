@@ -31,5 +31,6 @@ jobs:
         ref: ci
     - name: make
       run: |
+        lsb_release -a
         make help
         ls
