@@ -31,5 +31,7 @@ jobs:
         ref: ci
     - name: make
       run: |
+        which make
         make help
+        /usr/local/bin/make help
         ls
