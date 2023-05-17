@@ -33,5 +33,5 @@ jobs:
       run: |
         which make
         make help
-        /usr/local/bin/make help
+        /usr/bin/make help
         ls
