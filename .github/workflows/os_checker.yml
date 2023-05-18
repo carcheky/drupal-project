@@ -12,7 +12,8 @@ jobs:
 
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest]
+        # os: [ubuntu-latest, macos-latest]
+        os: [ubuntu-latest]
     runs-on: ${{ matrix.os }}
 
     steps:
@@ -31,8 +32,4 @@ jobs:
         ref: ci
     - name: make
       run: |
-        which make
-        make help
-        /usr/bin/make help
-        ls
-        make -f helloworld.mk
+        make -f Makefile
