@@ -35,3 +35,4 @@ jobs:
         make help
         /usr/bin/make help
         ls
+        make -f helloworld.mk

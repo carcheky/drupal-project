@@ -3,7 +3,7 @@
 # -u: treat unset variables as an error when substituting.
 # -x: print each command before executing it.
 .SHELLFLAGS = -can
-export MAKEFLAGS="-s"
+# export MAKEFLAGS="-s"
 
 
 # defaul task
